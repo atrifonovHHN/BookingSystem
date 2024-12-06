@@ -131,6 +131,24 @@ fun AddScreen(
                             return@Button
                         }
 
+                        arrivalDate!! < LocalDate.now() -> { // Neue Validierung
+                            Toast.makeText(
+                                context,
+                                "Arrival date cannot be in the past",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@Button
+                        }
+
+                        departureDate!! < LocalDate.now() -> { // Neue Validierung
+                            Toast.makeText(
+                                context,
+                                "Departure date cannot be in the past",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@Button
+                        }
+
                         else -> {
                             val arrivalDateLong = arrivalDate?.toEpochDay()
                             val departureDateLong = departureDate?.toEpochDay()
